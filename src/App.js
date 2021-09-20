@@ -6,14 +6,13 @@ import { Switch, Route } from 'react-router-dom'
 import Header from './components/header/Header.js';
 
 // import pages 
-import ListCountry from './pages/ListCountry';
-import SingleCountry from './pages/singleCountry/SingleCountry';
-import  NotFound  from './pages/notFound/NotFound';
+import ListCountry from './views/ListCountry';
+import SingleCountry from './views/singleCountry/SingleCountry';
+import  NotFound  from './views/notFound/NotFound';
 function App() {
   return (
     <>
       <Header/>
-
       <Switch>
           <Route exact path="/">
               <ListCountry/>

@@ -3,19 +3,14 @@ import Filter from '../filter/Filter'
 import Country from '../country/Country';
 import Loading from '../../assests/images/loading.gif';
 import "./ListCountries.scss"
-import Flag from './../country/Country';
 const ListCountries = () => {
     
     // base fetched data:
     const [storedFlags, setStoredFlags] = useState([]);
-    
-  
-    
-    let [load , setLoad] = useState(true);
-    let [valLoading,setValLoading] = useState("laoding");
+
     // data to store filtered data temporary:
     const [flags, setFlags] = useState([])
-    const [term, setTerm] = useState('')
+    let [term, setTerm] = useState('')
     
     const handleSearch = () => {
         // filtering with input criteria/term: 
@@ -74,8 +69,7 @@ const ListCountries = () => {
 
     useEffect(() => {
         handleSearch();
-        
-    }, [term])
+    }, [ term])
 
     const handleAll = () => {
         setFlags(storedFlags);

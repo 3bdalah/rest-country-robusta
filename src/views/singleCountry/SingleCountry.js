@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useHistory } from "react-router-dom";
+import Loading from "../../assests/images/loading.gif";
 import './SingleCountry.scss'
 const SingleCountry = () => {
     const [country, setCountry] = useState([])
-    const history = useHistory();
+    
     let { id } = useParams()
     console.log('id => ', id)
     useEffect(() => {
@@ -30,7 +30,8 @@ const SingleCountry = () => {
                 <Link to="/" className="btn btn-light back-to-home">
                     <i className="fas fa-arrow-left"></i> Back Home
                 </Link>
-                {country.map((flagData) => {
+                {console.log("country",country)}
+                {country.length !== 0 ? (country.map((flagData) => {
                     const {
                         flag,
                         name,
@@ -121,7 +122,7 @@ const SingleCountry = () => {
                            
                         </div>
                     )
-                })}
+                })) : (<img src={Loading} alt="loading" className="loading"/>)}
             </section>
         </>
     )
