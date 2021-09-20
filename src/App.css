@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+@import url('https://fonts.google.com/specimen/Nunito+Sans');
+
+* {
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+    --background-el: hsl(0, 0%, 100%);
+    --body: hsl(0, 0%, 98%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-color: var(--body);
+    color: hsl(200, 15%, 8%);
+    font-family: 'Nunito Sans', sans-serif;
+    margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body.dark {
+    color: hsl(0, 0%, 100%);
+    --body: hsl(207, 26%, 17%);
+    --background-el: hsl(209, 23%, 22%);
+}
+body.dark a {
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+}
+body a {
+    color: hsl(200, 15%, 8%);
+    text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+    background-color: var(--background-el);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+    max-width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1440px;
+    padding: 30px;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Theme button styling */
+.btn-toggle {
+    background-color: var(--background-el);
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    width: 120px;
+}
+
+.btn-toggle .fas {
+    display: none;
+}
+
+body.dark .btn-toggle .fas {
+    display: inline-block;
+}
+
+body.dark .btn-toggle .far {
+    display: none;
 }
