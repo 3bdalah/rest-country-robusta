@@ -13,15 +13,16 @@ function App() {
   return (
     <>
       <Header/>
+
       <Switch>
           <Route exact path="/">
               <ListCountry/>
           </Route>
           <Route path="/countries/:id" children={<SingleCountry />}>  
           </Route>
-          <Route path>
+          {/* <Route path>
             <NotFound/>
-          </Route>
+          </Route> */}
       </Switch>
       {/* <Footer /> */}
     </>
