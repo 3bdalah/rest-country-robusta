@@ -9,6 +9,7 @@ const ListCountries = () => {
     const [storedFlags, setStoredFlags] = useState([])
     
     let [load , setLoad] = useState(true);
+    let [valLoading,setValLoading] = useState("laoding");
     // data to store filtered data temporary:
     const [flags, setFlags] = useState([])
     const [term, setTerm] = useState('')
@@ -33,16 +34,16 @@ const ListCountries = () => {
             }
         )
         console.log("filterstersm:",filteredBySearchTerm);
-        //  if(filteredBySearchTerm){
-
-        //  }
+         
         setFlags(filteredBySearchTerm);
+        if(filteredBySearchTerm.length ===0) setValLoading("NotFound")
+        else setValLoading("Loading")
     }
     const fetchData = async() => {
         
             const result = await fetch('https://restcountries.eu/rest/v2/all')
             const data = await result.json()
-    
+        
             setStoredFlags(data)
             setFlags(data);
             
@@ -51,6 +52,7 @@ const ListCountries = () => {
     // Before before before before 
     useEffect(()=>{
         fetchData();
+        
     }, []);
 
 
@@ -85,11 +87,7 @@ const ListCountries = () => {
                         <Country key={flag.name} {...flag} />
                     ))}
                 </div>
-            ) : (
-                <h2 style={{ textAlign: `center` }} className="not__found">
-                    Your search term does not matches any
-                </h2>
-            ) }
+            ) : (<h2>{valLoading}</h2>)}
         </>
     )
 }
