@@ -8,7 +8,7 @@ import Header from './components/header/Header.js';
 // import pages 
 import ListCountry from './pages/ListCountry';
 import SingleCountry from './pages/singleCountry/SingleCountry';
-import  NotFound  from './pages/NotFound';
+import  NotFound  from './pages/notFound/NotFound';
 function App() {
   return (
     <>
@@ -18,11 +18,11 @@ function App() {
           <Route exact path="/">
               <ListCountry/>
           </Route>
-          <Route path="/countries/:id" children={<SingleCountry />}>  
+          <Route exact path="/countries/:id" children={<SingleCountry />}>  
           </Route>
-          {/* <Route path>
+          <Route path="*">
             <NotFound/>
-          </Route> */}
+          </Route>
       </Switch>
       {/* <Footer /> */}
     </>

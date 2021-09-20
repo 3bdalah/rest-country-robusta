@@ -8,7 +8,7 @@ const Flag = ({ name, flag, population, capital, region }) => {
         <>
             <Link className="card" to={`/countries/${name}`}>
                 <div >
-                    <img src={flag} alt={name} className="img-country" />
+                    <img src={flag} alt={name} className="img-country" loading="lazy"/>
                     <div className="card-body">
                         <h3 className="country-name">{name}</h3>
                         <p>

@@ -1,21 +1,3 @@
-# `Structure Path`
-
-```javascript
-C:.
-├───components
-│   ├───country
-│   ├───filter
-│   ├───footer
-│   ├───header
-│   └───listCountry
-├───helpers
-├───pages
-├───styles
-├───testing
-│   ├───b2b
-│   ├───integration
-│   └───unit
-└───utils
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

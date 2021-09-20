@@ -18,6 +18,20 @@ header {
         align-items: center;
         justify-content: space-between;
         font-size: 16px;
-        width: 120px;
+        @include width__Hight(120px,40px);
+            
+        position: relative;
+        .sound{
+            position: absolute;
+            top:0;
+            left:0;
+            bottom: 0;
+            height:0;
+            // width:120px;
+            @include width__Hight(120px,40px);
+            // height: 10px;
+            // z-index: 33;
+            // background-color: aqua;
+        }
     }
 }

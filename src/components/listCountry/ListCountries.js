@@ -1,19 +1,22 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import Filter from '../filter/Filter'
 import Country from '../country/Country';
-import Loading from '../../common/images/loading.gif';
+import Loading from '../../assests/images/loading.gif';
 import "./ListCountries.scss"
+import Flag from './../country/Country';
 const ListCountries = () => {
-    // COMP DATA:
+    
     // base fetched data:
-    const [storedFlags, setStoredFlags] = useState([])
+    const [storedFlags, setStoredFlags] = useState([]);
+    
+  
     
     let [load , setLoad] = useState(true);
     let [valLoading,setValLoading] = useState("laoding");
     // data to store filtered data temporary:
     const [flags, setFlags] = useState([])
     const [term, setTerm] = useState('')
-
+    
     const handleSearch = () => {
         // filtering with input criteria/term: 
         
@@ -36,8 +39,9 @@ const ListCountries = () => {
         console.log("filterstersm:",filteredBySearchTerm);
          
         setFlags(filteredBySearchTerm);
-        if(filteredBySearchTerm.length ===0) setValLoading("NotFound")
-        else setValLoading("Loading")
+        if(filteredBySearchTerm.length ===0) return false;
+        else return true;
+        
     }
     const fetchData = async() => {
         
@@ -80,14 +84,14 @@ const ListCountries = () => {
         <>
             {/* 1) get the data from user input*/}
             <Filter getInputVal={(searchTerm) => setTerm(searchTerm)} setAll={()=> handleAll()}/>
-{/* */}
             {flags.length ? (
-                <div className="list-flags container countries">
-                    { flags.map((flag) => (
-                        <Country key={flag.name} {...flag} />
-                    ))}
-                </div>
-            ) : (<h2>{valLoading}</h2>)}
+                    <div className="list-flags container countries">
+                        { flags.map((flag) => (
+                            <Country key={flag.name} {...flag} />
+                        ))}
+                    </div>
+                ) :(<img src={Loading} className="loading" alt="loading" loading="lazy" />)   
+            }
         </>
     )
 }
